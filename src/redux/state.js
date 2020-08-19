@@ -1,9 +1,14 @@
+let renderEnitreTree = () => {
+    console.log('state is changed');
+}
+
 let state = {
     profilePage: {
         postData: [
             { id: 1, message: 'Hi, how are you?', likesCount: 12 },
             { id: 2, message: 'It\'s my first post', likesCount: 11 }
-        ]
+        ],
+        newPostText: 'Dimka'
 
     }
     ,
@@ -25,6 +30,29 @@ let state = {
         ]
     }
 
+}
+
+export const addPost = () => {
+    let newPost = {
+        id: 5,
+        message: state.profilePage.newPostText,
+        likesCount: 100
+    }
+    state.profilePage.postData.push(newPost);
+    state.profilePage.newPostText = '';
+    renderEnitreTree(state);
+
+
+}
+
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    renderEnitreTree(state);
+}
+
+export const subscribe = (observer) => {
+    renderEnitreTree = observer;
 }
 
 export default state;

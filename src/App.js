@@ -12,9 +12,9 @@ const App = (props) => {
             <div className='app-wrapper'>
                 <Header />
                 <Navbar />
-                <div class='app-wrapper-content'>
-                    <Route path='/dialogs' component={() => <Dialogs dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData} />} /> {/*/dialogs/spam/blabla*/}
-                    <Route path='/profile' component={() => <Profile postData={props.state.profilePage.postData} />} />
+                <div className='app-wrapper-content'>
+                    <Route path='/dialogs' render={() => <Dialogs dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData} />} /> {/*/dialogs/spam/blabla*/}
+                    <Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />} />
                 </div>
             </div>
         </BrowserRouter>)
