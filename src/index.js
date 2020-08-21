@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from './redux/state';
+import store from './redux/redux-store';
 
 let renderEnitreTree = (state) => {
 
@@ -15,7 +15,10 @@ let renderEnitreTree = (state) => {
 renderEnitreTree(store.getState());
 
 
-store.subscribe(renderEnitreTree)
+store.subscribe(() => {
+    let state = store.getState();
+    renderEnitreTree(state)
+})
 
 
 // If you want your app to work offline and load faster, you can change
