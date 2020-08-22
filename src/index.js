@@ -6,10 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import store from './redux/redux-store';
 
 let renderEnitreTree = (state) => {
-
-
-    ReactDOM.render(<App state={state} dispatch={store.dispatch.bind(store)} />, document.getElementById('root'));
-
+    ReactDOM.render(<App store={store} state={state} dispatch={store.dispatch.bind(store)} />, document.getElementById('root'));
 }
 
 renderEnitreTree(store.getState());
